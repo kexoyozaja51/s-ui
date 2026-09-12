@@ -1,0 +1,17 @@
+services:
+  s-ui:
+    image: alireza7/s-ui
+    container_name: s-ui
+    hostname: "s-ui"
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    volumes:
+      - "./db:/app/db"
+      - "./cert:/app/cert"
+      - "${HOME}/caddy/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory/:/var/lib/tls/:ro"
+    tty: true
+    restart: unless-stopped
+    network_mode: "host"
+    entrypoint: "./entrypoint.sh"
