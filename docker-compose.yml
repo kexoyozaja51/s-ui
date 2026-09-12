@@ -1,8 +1,6 @@
 services:
   s-ui:
-    image: alireza7/s-ui
-    container_name: s-ui
-    hostname: "s-ui"
+    image: ghcr.io/alireza0/s-ui:v1.5.5
     cap_add:
       - NET_ADMIN
     devices:
